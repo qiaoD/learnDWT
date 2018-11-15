@@ -65,7 +65,7 @@ class Batch_Feeder:
         if self._train:
             while(len(idBatch) < self._batchSize):
                 ssImage = skimage.io.imread(self._paths[self._index_in_epoch][3])
-		
+
                 ssImage = scipy.misc.imresize(ssImage, 50)
 		print(self._paths[self._index_in_epoch][3])
                 ssBinary, ssMask = ssProcess(ssImage)
@@ -129,6 +129,9 @@ class Batch_Feeder:
             ssBinaryBatch = np.array(ssBinaryBatch)
             ssMaskBatch = np.array(ssMaskBatch)
 
+            print(imageBatch.shape)
+            print(ssBinaryBatch.shape)
+            print(ssMaskBatch.shape)
             self._index_in_epoch += self._batchSize
 
             return imageBatch, ssBinaryBatch, ssMaskBatch, idBatch

@@ -11,7 +11,7 @@ if __name__ == "__main__":
     savePrefix = "all"
     outputPrefix = ""
     # 0=car, 1=person, 2=rider, 3=motorcycle, 4=bicycle, 5=truck, 6=bus, 7=train
-    train = True
+    train = False
 
     if train:
         batchSize = 2
@@ -56,7 +56,7 @@ if __name__ == "__main__":
     else:
         batchSize = 1
         #modelWeightPaths = ["../model/depth/depth_unified_CR_CR_pretrain_060.mat","../model/direction/direction_unified_CR_unified_CR_pretrain_060.mat"]
-	modelWeightPaths = ["../model/Q_935.mat"]
+	modelWeightPaths = ["../model/all_024.mat"]
         model = get_model(modelWeightPaths=modelWeightPaths)
 
         feeder = Batch_Feeder(dataset="cityscapes",

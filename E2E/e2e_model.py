@@ -19,9 +19,11 @@ class Network:
 
     def build(self, inputData, ss=None, ssMask=None, keepProb=1.0):
         if ss is not None:
+            print(ss.shape)
             ss = tf.expand_dims(ss,-1)
+            print(ss.shape)
             inputData = inputData * ss
-	
+
 	print(inputData.get_shape())
 	print("------")
 	print(ssMask.get_shape())
@@ -29,7 +31,7 @@ class Network:
 	inputData = tf.concat([inputData, tf.expand_dims(ssMask,-1)], 3)
 	print("------")
 	print(inputData.get_shape())
-	print(inputData)	
+	print(inputData)
 
         print "building direction net"
 
